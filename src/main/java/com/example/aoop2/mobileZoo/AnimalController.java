@@ -1,5 +1,8 @@
 package com.example.aoop2.mobileZoo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,7 +63,19 @@ public class AnimalController {
 
         model.addAttribute("animals", Animal.savedAnimals);
         return "zootest";
+    }
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    @GetMapping("/test9")
+    public String test9(Model model){
+        String sql = "INSERT INTO animal (animal_id,specie,name,alive) VALUES (78675467,'golden','Fred',false)";
 
+        int rows = jdbcTemplate.update(sql);
+
+        List<Animal> animals = jdbcTemplate.query("SELECT * FROM animal",new BeanPropertyRowMapper<>(Animal.class));
+
+        model.addAttribute("animals", animals);
+        return "animal/zootest";
     }
 
 }
