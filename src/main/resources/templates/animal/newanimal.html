@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layouts/main}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--<div th:replace="~{/fragments/header::header}"></div>-->
+
+<section layout:fragment="custom-content">
+
+    <h2> Create new animal</h2>
+
+    <form method="post" th:action="@{/animal/add}" th:object="${animal}">
+        <input id="specie" placeholder="gatunek" th:field="*{specie}" type="text">
+        <input id="name" placeholder="nazwa" th:field="*{name}" type="text">
+        <input id="alive" placeholder="czy zyje" th:field="*{alive}" type="text">
+        <button type="submit">Zapisz</button>
+    </form>
+
+</section>
+
+<!--&lt;!&ndash;navigation&ndash;&gt;-->
+<!--<nav class="navbar navbar-expand-lg p-3 mb-2 bg-info-subtle text-emphasis-info"  >-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" aria-current="page" href="#">Mobile ZOO</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/animal/new">add new animal</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/animal/list">animal list</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link disabled">something else</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+
+
+
+<!--<div class="container">-->
+<!--    <section class="top">-->
+<!--        <header>-->
+<!--            <h2>create new animal</h2>-->
+<!--            <p>add new animal to our mobile zoo</p>-->
+<!--        </header>-->
+
+<!--        <form th:action="@{/animal/add}" method="post" th:object="${animal}">-->
+
+<!--            <div class="row g-3 align-items-center">-->
+<!--                <div class="col-auto">-->
+<!--                    <label for="specie" class="col-form-label">specie</label>-->
+<!--                </div>-->
+<!--                <div class="col-auto">-->
+<!--                    <input type="text" id="specie" class="form-control" th:field="*{specie}" placeholder="specie">-->
+<!--                </div>-->
+<!--                <div class="col-auto">-->
+<!--                </div>-->
+
+<!--                <div class="col-auto">-->
+<!--                    <label for="name" class="col-form-label">name</label>-->
+<!--                </div>-->
+<!--                <div class="col-auto">-->
+<!--                    <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="name">-->
+<!--                </div>-->
+<!--                <div class="col-auto">-->
+<!--                </div>-->
+
+<!--                <div class="col-auto">-->
+<!--                    <label for="alive" class="col-form-label">alive</label>-->
+<!--                </div>-->
+<!--                <div class="col-auto">-->
+<!--                    <input type="text" id="alive" class="form-control" th:field="*{alive}" placeholder="alive">-->
+<!--                </div>-->
+<!--                <div class="col-auto">-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <input class="btn btn-primary" type="submit" value="Save">-->
+<!--            &lt;!&ndash;  <input type="text" id="name" th:field="*{name}" placeholder="name">-->
+<!--            <input type="text" id="alive" th:field="*{alive}" placeholder="is it alive?">-->
+<!--            <button type="submit">Save</button> &ndash;&gt;-->
+<!--        </form>-->
+<!--    </section>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;footer&ndash;&gt;-->
+<!--<div class="p-3 mb-2 bg-danger-subtle text-emphasis-danger">-->
+<!--    <h2>our mobile zoo</h2>-->
+<!--    <div class="content">-->
+<!--        <p>Czy ta zebra jest prawdziwa?-->
+<!--            Czy to tak naprawdę bywa?-->
+<!--            Czy też malarz z bożej łaski-->
+<!--            Pomalował osła w paski?</p>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>
